@@ -114,8 +114,12 @@ def download():
         tempLinkdownload = generate_download_link(BUCKET_NAME,f'musicas/{file_name}.mp3',3600)
         print(tempLinkdownload)
         delete_local_file(temp_file_path)
+
+        data = {
+            "aws_url":tempLinkdownload
+        }
         
-        return redirect(tempLinkdownload),200
+        return data,200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
