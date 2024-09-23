@@ -119,7 +119,7 @@ def download():
             "aws_url":tempLinkdownload
         }
         
-        return data,200
+        return jsonify(data),200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
